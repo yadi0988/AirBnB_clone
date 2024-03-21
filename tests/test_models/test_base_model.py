@@ -47,6 +47,7 @@ class test_baseModel(unittest.TestCase):
         obj = BaseModel()
         obj.save()
         self.assertGreater(obj.updated_at, obj.created_at)
+        self.assertNotEqual(obj.updated_at, obj.created_at)
 
     def test_to_dict_method(self):
         obj = BaseModel()
