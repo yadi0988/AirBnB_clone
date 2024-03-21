@@ -41,7 +41,8 @@ class test_baseModel(unittest.TestCase):
 
     def test_str_type(self):
         obj = BaseModel()
-        self.assertTrue(type(obj.__str__()) is str)
+        expected = "[BaseModel] ({}) {}".format(obj.id, obj.__dict__)
+        self.assertEqual(expected, str(obj))
 
     def test_save_updates_updated_at(self):
         obj = BaseModel()
