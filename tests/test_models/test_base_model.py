@@ -64,3 +64,11 @@ class test_baseModel(unittest.TestCase):
 
         self.assertTrue(type(_dict['created_at']) is str)
         self.assertTrue(type(_dict['updated_at']) is str)
+
+
+    def test_recreate_instance(self):
+        obj1 = BaseModel()
+        _dict = obj1.to_dict()
+        obj2 = BaseModel(**_dict)
+
+        self.assertEqual(obj1.id, obj2.id)
