@@ -45,9 +45,13 @@ class test_baseModel(unittest.TestCase):
 
     def test_save_updates_updated_at(self):
         obj = BaseModel()
+        old_created_at = obj.created_at
+        old_updated_at = obj.updated_at
         obj.save()
-        self.assertGreater(obj.updated_at, obj.created_at)
-        self.assertNotEqual(obj.updated_at, obj.created_at)
+        new_created_at = obj.created_at
+        new_updated_at = obj.updated_at
+        self.assertNotEqual(old_updated_at, new_updated_at)
+        self.assertEqual(old_created_at, new_created_at)
 
     def test_to_dict_method(self):
         obj = BaseModel()
