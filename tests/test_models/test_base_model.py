@@ -4,11 +4,14 @@ from models.base_model import BaseModel
 import unittest
 import datetime
 
+
 def setUpModule():
     pass
 
+
 def tearDownModule():
     pass
+
 
 class test_baseModel(unittest.TestCase):
 
@@ -17,7 +20,7 @@ class test_baseModel(unittest.TestCase):
         self.assertTrue(hasattr(obj, "id"))
         self.assertTrue(hasattr(obj, "created_at"))
         self.assertTrue(hasattr(obj, "updated_at"))
-        
+
     def test_id(self):
         obj1 = BaseModel()
         obj2 = BaseModel()
@@ -47,7 +50,7 @@ class test_baseModel(unittest.TestCase):
     def test_to_dict_method(self):
         obj = BaseModel()
         _dict = obj.to_dict()
-        
+
         self.assertTrue(type(_dict) is dict)
 
         self.assertIn('__class__', _dict)
