@@ -14,14 +14,20 @@ class BaseModel():
         self.updated_at = datetime.now()
 
     def __str__(self):
+        "__str__ function"
         return "\
 [{}] ({}) {}\
 ".format(__class__.__name__, self.id, self.__dict__)
 
     def save(self):
+        "updates the public instance attribute updated_at"
         self.updated_at = datetime.now()
 
     def to_dict(self):
+        """
+        returns a dictionary containing
+        all keys/values of __dict__ of the instance
+        """
         obj_dict = {}
         for key, value in self.__dict__.items():
             if type(value) is datetime:
