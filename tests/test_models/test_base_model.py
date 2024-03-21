@@ -14,6 +14,7 @@ def tearDownModule():
 
 
 class test_baseModel(unittest.TestCase):
+    "test_baseModel class"
 
     def test_existance_of_attr(self):
         obj = BaseModel()
