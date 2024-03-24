@@ -4,8 +4,9 @@ import json
 import os
 from datetime import datetime
 from models.base_model import BaseModel
+from models.user import User
 
-classes = {"BaseModel": BaseModel}
+classes = {"BaseModel": BaseModel, "User": User}
 
 class FileStorage():
     "class that serializes deserializes instances"
