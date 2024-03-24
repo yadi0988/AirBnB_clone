@@ -35,6 +35,9 @@ class BaseModel():
         self.updated_at = datetime.now()
         models.storage.save()
 
+    def all(self):
+        return models.storage.all()
+
     def to_dict(self):
         """
         returns a dictionary containing
