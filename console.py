@@ -90,14 +90,15 @@ class HBNBCommand(cmd.Cmd):
             if cls_name != '':
                 print("** class doesn't exist **")
                 empty = False
-        try:
-            all_objs = self.obj.all()
-            for key, value in all_objs.items():
-                objs_list.append(str(value))
-            print(objs_list)
-        except Exception:
-            if empty:
-                print([])
+        if empty:
+            try:
+                all_objs = self.obj.all()
+                for key, value in all_objs.items():
+                    objs_list.append(str(value))
+                    print(objs_list)
+            except Exception:
+                if empty:
+                    print([])
 
     def do_update(self, args):
         args_list = args.split(" ")
