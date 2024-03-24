@@ -90,8 +90,9 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, cls_name=None):
         empty = True
         objs_list = []
+        c_name = cls_name.replace(".", "")
         try:
-            Cname = globals()[cls_name]
+            Cname = globals()[c_name]
         except Exception:
             if cls_name != '':
                 print("** class doesn't exist **")
