@@ -3,6 +3,7 @@
 
 import cmd
 import sys
+from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models.user import User
@@ -31,6 +32,14 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         pass
+
+    def do_count(self, arg):
+        count = 0
+        obj_dict = storage.all()
+        for key in obj_dict:
+            if (arg in key):
+                count += 1
+        print(count)
 
     def precmd(self, line):
         if '.' in line:
