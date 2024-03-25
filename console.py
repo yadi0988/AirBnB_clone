@@ -32,6 +32,13 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
 
+    def precmd(self, line):
+        if '.' in line:
+            parts = line.replace("()", "").split(".")
+            parts.reverse()
+            line = " ".join(parts)
+        return cmd.Cmd.precmd(self, line)
+    
     def do_create(self, cls_name=None):
         arg_list = cls_name.split(" ")
         if cls_name == '':
